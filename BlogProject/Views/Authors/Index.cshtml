@@ -1,0 +1,35 @@
+﻿@model IEnumerable<BlogProject.Models.Author>
+
+@{
+    ViewData["Title"] = "Yazarlar";
+}
+
+<h1> <a class="text-decoration-none text-dark" asp-action="Create">Yazar Ekle</a></h1>
+
+<p>
+   
+</p>
+<table class="table table-borderless table-striped">
+    <thead>
+        <tr>
+            @* <th>
+                @Html.DisplayNameFor(model => model.AuthorName)
+            </th> *@
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.AuthorName)
+                </td>
+                <td>
+                    <a class="text-primary" asp-action="Edit" asp-route-id="@item.AuthorId">düzenle</a> /
+                    <a class="text-primary" asp-action="Delete" asp-route-id="@item.AuthorId">sil</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

@@ -1,0 +1,52 @@
+﻿@model EditorCreateModel
+
+@{
+    ViewData["Title"] = "Yazı Ekle";
+}
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <input asp-for="Editor.TextTitle" class="form-control" placeholder="Başlık" />
+                <span asp-validation-for="Editor.TextTitle" class="text-danger"></span>
+            </div>
+            <div class="form-group mt-3">
+                <input asp-for="Editor.Summary" class="form-control" placeholder="Özet" />
+                <span asp-validation-for="Editor.Summary" class="text-danger"></span>
+            </div>
+            <div class="form-group mt-3">
+                <input asp-for="Editor.Content" class="form-control" placeholder="İçerik" />
+                <span asp-validation-for="Editor.Content" class="text-danger"></span>
+            </div>
+            <div class="form-group mt-3">
+                <input asp-for="Editor.CreationDate" class="form-control" value="Oluşturulma Tarihi"/>
+                <span asp-validation-for="Editor.CreationDate" class="text-danger"></span>
+            </div>
+            <div class="form-group mt-3">
+                <select asp-for="Editor.CategoryId" class="form-control" >
+                @foreach (var item in Model.Categories)
+                {
+                        <option placeholder="Kategori" value="@item.CategoryId">@item.CategoryName </option>
+                }
+                </select>
+                <span asp-validation-for="Editor.CategoryId" class="text-danger"></span>
+               
+            </div>
+            <div class="form-group mt-3">
+                <select asp-for="Editor.AuthorId" class="form-control" value="Yazar">
+                    @foreach (var item in Model.Authors)
+                    {
+                        <option value="@item.AuthorId">@item.AuthorName</option> 
+                    }
+                </select>
+                <span asp-validation-for="Editor.AuthorId" class="text-danger"></span>
+            </div>
+            <div class="form-group mt-3">
+                <a class="btn btn-danger" asp-action="Index">İptal</a>
+                <input type="submit" value="Ekle" class="btn btn-light" />
+            </div>
+        </form>
+    </div>
+</div>

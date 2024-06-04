@@ -1,0 +1,35 @@
+﻿@model IEnumerable<BlogProject.Models.Category>
+
+@{
+    ViewData["Title"] = "Kategoriler";
+}
+
+<h1><a class="text-decoration-none text-dark" asp-action="Create">Kategori Ekle</a></h1>
+
+<p>
+    
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.CategoryName)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CategoryName)
+                </td>
+                <td>
+                    <a class="text-primary" asp-action="Edit" asp-route-id="@item.CategoryId">düzenle</a> /
+                    <a class="text-primary" asp-action="Delete" asp-route-id="@item.CategoryId">sil</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

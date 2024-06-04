@@ -1,0 +1,25 @@
+﻿@model HomeIndexModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+<span class="text-dark fs-2">@Model.Editor.TextTitle</span>
+<div class="row">
+    @foreach (var item in Model.Editors)
+    {
+        <div class="col-8">
+            <div class="form-group">
+                <span class="text-dark fs-3">@Model.Editor.Content</span>
+
+            </div>
+            <div class="form-group">
+                <span class="text-dark fs-6">@Model.Author.AuthorName</span> -
+                <span class="text-dark fs-6">@Model.Editor.CreationDate</span> -
+                <span class="text-dark fs-6">@Model.Category.CategoryName</span>
+            </div>
+        </div>
+        <hr />
+    }
+    
+</div>
+

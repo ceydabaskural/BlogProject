@@ -1,0 +1,23 @@
+﻿@model BlogProject.Models.Author
+
+@{
+    ViewData["Title"] = "Yazarlar";
+}
+
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input asp-for="AuthorId" class="form-control" type="hidden" />
+            <div class="form-group">
+                <label asp-for="AuthorName" class="control-label"></label>
+                <span asp-validation-for="AuthorName" class="text-danger"></span>
+                <input asp-for="AuthorName" class="form-control" />
+            </div>
+            <div class="form-group mt-3">
+                <input type="submit" value="Kaydet" class="btn btn-light" />
+            </div>
+        </form>
+    </div>
+</div>
